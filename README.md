@@ -2,12 +2,14 @@
 
 ## Table of Contents
 
-- [Productivity](#productivity)
-- [Web Development](#web-development)
-- [Accessibility](#accessibility)
-- [Design](#design)
-- [Debugging](#debugging)
-- [Social Media](#social-media)
+- [Productivity](bookmarklets.md#productivity)
+- [Web Development](bookmarklets.md#web-development)
+- [Accessibility](bookmarklets.md#accessibility)
+- [Design](bookmarklets.md#design)
+- [Debugging](bookmarklets.md#debugging)
+- [Social Media](bookmarklets.md#social-media)
+
+For a full list of bookmarklets and their descriptions, see the [bookmarklets.md](bookmarklets.md) file.
 
 ## What are bookmarklets?
 
@@ -32,17 +34,6 @@ Contributions to the Awesome Bookmarklets collection are welcome! If you have a 
 4. Commit your changes and submit a pull request.
 
 Please ensure your bookmarklet is functioning correctly and includes a brief description of its purpose.
-
-## Categories
-
-- [Productivity](bookmarklets.md#productivity)
-- [Web Development](bookmarklets.md#web-development)
-- [Accessibility](bookmarklets.md#accessibility)
-- [Design](bookmarklets.md#design)
-- [Debugging](bookmarklets.md#debugging)
-- [Social Media](bookmarklets.md#social-media)
-
-For a full list of bookmarklets and their descriptions, see the [bookmarklets.md](bookmarklets.md) file.
 
 ## License
 
