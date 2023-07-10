@@ -51,7 +51,15 @@ javascript:function getACount(){return document.getElementsByTagName('a').length
 ```
 javascript:(function(t,u,w){t=''+(window.getSelection?window.getSelection():document.getSelection?document.getSelection():document.selection?document.selection.createRange().text:'');u=t?'https://www.google.com/search?q='+encodeURIComponent('define:'+unescape('"')+t+unescape('"')):'';w=window.open(u,'_blank','height=500,width=800,scrollbars=1');w.focus&&w.focus();if(!t){w.document.write(unescape('<html><head><title>Define...</title></head><body style="padding:1em;font-family:Helvetica,Arial"><br><form action="http://www.google.com/search"><input id="q" name="q" value="define:">&nbsp;<input type="submit" value="Go"></form><p style="font-size:.75em;color:#999">Note: you can also choose a term beforehand by highlighting it on the page!<br><br>Created by <a target="_blank" href="http://mrcoles.com/blog/dictionary-bookmarklet-popup-definition-browser/">Peter Coles</a></p><script>var q =document.getElementById("q"),v=q.value;q.focus();q.value="";q.value=v;</script></body></html>'));w.document.close();}})();
 ```
+- ### download reddit video
+```
+javascript:(function(){window.open('https://rapidsave.com/info?url='+window.location.pathname.slice(0))})();
+```
 - ### discover feed
 ```
 javascript:(function(){window.open('https://discovery.thirdplace.no/?q='+encodeURIComponent(document.location))})();
+```
+- ### download video
+```
+javascript:(function(){var currentUrl=encodeURIComponent(window.location.href);window.location.href="https://www.savethevideo.com/home?url="+currentUrl;})();
 ```
