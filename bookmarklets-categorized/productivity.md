@@ -131,3 +131,71 @@ javascript:void(window.open('https://readify.me/'+location.href));
 ```
 javascript:(function(){window.open('https://tedd.it'+window.location.pathname.slice(0))})();
 ```
+- ### password revealer
+```
+javascript:var p=r();function r(){var g=0,x=false,x=z(document.forms);g=g+1;var w=window.frames;for(var k=0;k<w.length;k++){var x=((x)||(z(w[k].document.forms)));g=g+1;}if(!x)alert('Password not found in '+g+' forms');}function z(f){var b=false;for(var i=0;i<f.length;i++){var e=f[i].elements;for(var j=0;j<e.length;j++){if(h(e[j])){b=true}}}return b;}function h(ej){var s='';if(ej.type=='password'){s=ej.value;if(s!=''){prompt('Password found ',s)}else{alert('Password is blank')}return true}}
+```
+- ### privacy redirect
+```
+javascript:void(window.open("https://farside.link/"+location.href, "_self"));
+```
+- ### qr code
+```
+javascript:(function(){window.open("http://chart.apis.google.com/chart?cht=qr&chs=500x500&chl=" + window.location,"","width=500,height=500")})();
+```
+- ### quora cleaner
+```
+javascript:if(window.location.href.indexOf('quora.com')>-1){(function(){(function(){var i,elements=document.querySelectorAll('body *');for(i=0;i<elements.length;i++){if(getComputedStyle(elements[i]).position==='fixed'){elements[i].parentNode.removeChild(elements[i]);}}})()})();(function(){function toArray(c){var a,k;a=new Array;for(k=0;k<c.length;++k)a[k]=c[k];return a;}var images,img,altText;images=toArray(document.images);for(var i=0;i<images.length;++i){img=images[i];altText=document.createTextNode(img.alt);img.parentNode.replaceChild(altText,img)}})();function cleanup(){var elements=document.getElementsByClassName('hyperlink_image');for(var i=0;i<elements.length;i++){elements[i].style.display='none';}var element2=document.getElementsByClassName('ui_layout_thumbnail');for(var i=0;i<element2.length;i++){element2[i].style.display='none';}var element3=document.getElementsByClassName('u-flex-auto');for(var i=0;i<element3.length;i++){element3[i].style.display='none';}};cleanup();}else{alert('This script only works on Quora.com!');}
+```
+- ### repo size
+```
+javascript:(()=>{let url=new URL(document.location.href);if(url.origin!="https://github.com"){return}if(url.pathname=="/"){return}let p=url.pathname.slice(1,url.pathname.length);let parts=p.split('/');if(parts.length<2){return}let x=[parts[0],parts[1]].join('/');fetch(`https://api.github.com/repos/${x}`).then(r=>r.json()).then((b)=>alert(`${(b['size']/1000).toFixed(2)}mb (${b['size']}kb)`))})()
+```
+- ### reveal passwords
+```
+javascript:(function(){var s,F,j,f,i;s="";F=document.forms;for(j=0;j<F.length;++j){f=F[j];for(i=0;i<f.length;++i){if(f[i].type.toLowerCase()=="password")s+=f[i].value+"\n";}}if(s)alert("Passwords in forms on this page:\n"+s);else alert("There are no passwords in forms on this page.");})();
+```
+- ### save page
+```
+javascript:void(window.open('https://web.archive.org/save/'+location.href));
+```
+- ### scroll bottom
+```
+javascript:window.scrollTo(0, document.body.scrollHeight || document.documentElement.scrollHeight);
+```
+- ### search site
+```
+javascript:var regularExpression=/\/([^\s\/]+)/g;var match=regularExpression.exec(window.location);var searchString=match[1];window.location="http://www.google.com/search?q=site:"+searchString+encodeURIComponent(" ");
+```
+- ### search site ddg
+```
+javascript:var regularExpression=/\/([^\s\/]+)/g;var match=regularExpression.exec(window.location);var searchString=match[1];window.location="http://www.duckduckgo.com/?q=site:"+searchString+encodeURIComponent(" ");
+```
+- ### seletion + url
+```
+javascript:var stext="";var sdom="";stext=window.getSelection().toString();sdom=document.location;window.prompt("Copy to clipboard: Ctrl+C",stext+" \u2013 ( "+sdom+" )");stext=null;sdom=null;
+```
+- ### show links
+```
+javascript:var a='';for(var ln=0;ln<document.links.length;ln++){var lk=document.links[ln];a+=ln+': <a href=\''+lk+'\' title=\''+lk.text+'\'>'+lk+'</a><br>\n';}w=window.open('','Links','scrollbars,resizable,width=400,height=600');w.document.write(a);
+```
+- ### show passwords
+```
+javascript:(function(){var IN,F;IN=document.getElementsByTagName('input');for(var i=0;i<IN.length;i++){F=IN[i];if(F.type.toLowerCase()=='password'){try{F.type='text'}catch(r){var n,Fa;n=document.createElement('input');Fa=F.attributes;for(var ii=0;ii<Fa.length;ii++){var k,knn,knv;k=Fa[ii];knn=k.nodeName;knv=k.nodeValue;if(knn.toLowerCase()!='type'){if(knn!='height'&&knn!='width'&&!!knv)n[knn]=knv}};F.parentNode.replaceChild(n,F)}}}})()
+```
+- ### show title
+```
+javascript:var titletag=document.getElementsByTagName('title')[0].innerText;var tytul=document.getElementsByClassName('title');var ft=document.getElementsByClassName('barrier__heading-serif');if(tytul.length<=0){tytul='Title Class does not exist!';}else{tytul=document.getElementsByClassName('title')[0].innerText;}if(titletag.length<=0){titletag='There is no <title> tag on this page!';}else{titletag=document.getElementsByTagName('title')[0].innerText;}if(ft.length<=0){ft='';}else{ft='\nFT Title: '+document.getElementsByClassName('barrier__heading-serif')[0].innerHTML;}alert('<TITLE> '+titletag+'</TITLE>\nTitle class: '+tytul+ft);
+```
+- ### show site info
+```
+javascript:void(window.open('http://builtwith.com/?'+location.host));
+```
+- ### site search
+```
+javascript:var regularExpression=/((&|\?)q=)([^&]*)(?!.*&q=)/g;var match=regularExpression.exec(window.location);var searchString=match[3];var searchArray=searchString.split("+");var siteSearchTerm=searchArray.pop();var siteSearchTermArray=siteSearchTerm.split(".");if(siteSearchTermArray.length==1||siteSearchTermArray.pop().length>3){siteSearchTerm=siteSearchTerm+".com";}if(siteSearchTerm.indexOf("site")==-1){var siteSearchTerm="site:"+siteSearchTerm;}searchArray.push(siteSearchTerm);window.location="http://www.google.com/search?q="+searchArray.join("+");
+```
+- ### sort tables
+```
+javascript:function toArray(c){var a,k;a=new Array;for(k=0;k<c.length;++k)a[k]=c[k];return a;}function insAtTop(par,child){if(par.childNodes.length)par.insertBefore(child,par.childNodes[0]);else par.appendChild(child);}function countCols(tab){var nCols,i;nCols=0;for(i=0;i<tab.rows.length;++i)if(tab.rows[i].cells.length>nCols)nCols=tab.rows[i].cells.length;return nCols;}function makeHeaderLink(tableNo, colNo, ord){var link;link=document.createElement('a');link.href='javascript:sortTable('+tableNo+','+colNo+','+ord+');';link.appendChild(document.createTextNode((ord>0)?'↑':'↓ '));return link;}function makeHeader(tableNo,nCols){var header,headerCell,i;header=document.createElement('tr');for(i=0;i<nCols;++i){headerCell=document.createElement('td');headerCell.appendChild(makeHeaderLink(tableNo,i,1));headerCell.appendChild(document.createTextNode('/'));headerCell.appendChild(makeHeaderLink(tableNo,i,-1));header.appendChild(headerCell);}return header;}g_tables=toArray(document.getElementsByTagName('table'));if(!g_tables.length)alert("This page doesn't contain any tables.");(function(){var j,thead;for(j=0;j<g_tables.length;++j){thead=g_tables[j].createTHead();insAtTop(thead, makeHeader(j,countCols(g_tables[j])))}})();function compareRows(a,b){if(a.sortKey===b.sortKey)return 0;return (a.sortKey < b.sortKey) ? g_order : -g_order;}function sortTable(tableNo, colNo, ord){var table,rows,nR,bs,i,j,temp;g_order=ord;g_colNo=colNo;table=g_tables[tableNo];rows=new Array();nR=0;bs=table.tBodies;for(i=0; i<bs.length; ++i)for(j=0; j<bs[i].rows.length; ++j){rows[nR]=bs[i].rows[j];temp=rows[nR].cells[g_colNo];if(temp)rows[nR].sortKey=temp.innerHTML;else rows[nR].sortKey="";;++nR;}rows.sort(compareRows);for (i=0; i < rows.length; ++i)insAtTop(table.tBodies[0], rows[i]);}
+```
