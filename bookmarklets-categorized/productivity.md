@@ -199,3 +199,79 @@ javascript:var regularExpression=/((&|\?)q=)([^&]*)(?!.*&q=)/g;var match=regular
 ```
 javascript:function toArray(c){var a,k;a=new Array;for(k=0;k<c.length;++k)a[k]=c[k];return a;}function insAtTop(par,child){if(par.childNodes.length)par.insertBefore(child,par.childNodes[0]);else par.appendChild(child);}function countCols(tab){var nCols,i;nCols=0;for(i=0;i<tab.rows.length;++i)if(tab.rows[i].cells.length>nCols)nCols=tab.rows[i].cells.length;return nCols;}function makeHeaderLink(tableNo, colNo, ord){var link;link=document.createElement('a');link.href='javascript:sortTable('+tableNo+','+colNo+','+ord+');';link.appendChild(document.createTextNode((ord>0)?'↑':'↓ '));return link;}function makeHeader(tableNo,nCols){var header,headerCell,i;header=document.createElement('tr');for(i=0;i<nCols;++i){headerCell=document.createElement('td');headerCell.appendChild(makeHeaderLink(tableNo,i,1));headerCell.appendChild(document.createTextNode('/'));headerCell.appendChild(makeHeaderLink(tableNo,i,-1));header.appendChild(headerCell);}return header;}g_tables=toArray(document.getElementsByTagName('table'));if(!g_tables.length)alert("This page doesn't contain any tables.");(function(){var j,thead;for(j=0;j<g_tables.length;++j){thead=g_tables[j].createTHead();insAtTop(thead, makeHeader(j,countCols(g_tables[j])))}})();function compareRows(a,b){if(a.sortKey===b.sortKey)return 0;return (a.sortKey < b.sortKey) ? g_order : -g_order;}function sortTable(tableNo, colNo, ord){var table,rows,nR,bs,i,j,temp;g_order=ord;g_colNo=colNo;table=g_tables[tableNo];rows=new Array();nR=0;bs=table.tBodies;for(i=0; i<bs.length; ++i)for(j=0; j<bs[i].rows.length; ++j){rows[nR]=bs[i].rows[j];temp=rows[nR].cells[g_colNo];if(temp)rows[nR].sortKey=temp.innerHTML;else rows[nR].sortKey="";;++nR;}rows.sort(compareRows);for (i=0; i < rows.length; ++i)insAtTop(table.tBodies[0], rows[i]);}
 ```
+- ### stop editing
+```
+javascript:document.body.contentEditable='false';document.designMode='off';void 0;
+```
+- ### summate
+```
+javascript:void(window.open("https://summate.it/"+location.href, "_self"));
+```
+- ### switch hn
+```
+javascript:(function(){var a=window.location.href;a.match(/news\.ycombinator\.com/i)?(b=a.match(/item\?id=(\d+)/i)[1],window.location.href="https://hackernewz.com/item/"+b):a.match(/hackernewz\.com/i)&&(b=a.match(/item\/(\d+)/i)[1],window.location.href="https://news.ycombinator.com/item?id="+b);})();
+```
+- ### texed
+```
+data:text/html,<title>texed</title><body style=margin:0><textarea autofocus spellcheck=false style=width:100vw;height:100vh;resize:none;border:0;padding:6pt;font-family:monospace;font-size:large;background-color:rgb(22,22,22);color:lightyellow>
+```
+- ### text analytices
+```
+javascript:!function(){function e(e){return e&&""!==e&&(e=e.trim(),e=e.replace(/%5Cs+/gi," "),e=e.replace(/%5B%5Ea-zA-Z0-9%20%5D/gi,""),e.split(" ")):0}var t=function(t){var n=e(t)||[],r=t.length;if(0==n.length)return null;var i=0;n.forEach(function(e){i+=e.length}),i/=n.length;var o=n.reduce(function(e,t){return e.length<=t.length?e:t}),a=n.reduce(function(e,t){return e.length>=t.length?e:t});return{wordCount:n.length,charCount:r,minWord:o,maxWord:a,avgLen:i}},n=document.createElement("div");n.setAttribute("style","color:black;    position:fixed;    left:5%;    top:5%;    width:150px;    height:auto;    font-size:14px;    z-index:10000;    background:white;    border-radius:0px;    border:1px solid grey;    padding:5px 2px 5px 4px;"),n.setAttribute("id","analyticsbox");var r="";window.getSelection&&(r=window.getSelection().toString());var i=t(r),o=document.createElement("div");o.setAttribute("style","margin:5px;    font-family:serif;    line-height:1.2em;    font-size:16px;"),null==i?o.innerHTML="No text selected.<br/>Select some text and click the bookmark to run text analysis.":(o.innerHTML="Words: "+i.wordCount+"<br/>",o.innerHTML+="Chars: "+i.charCount+"<br/><br/>",o.innerHTML+="<span>Advanced Lengths</span><br/><br/>",o.innerHTML+="Avg Word: "+i.avgLen+"<br/>",o.innerHTML+="Min Word: "+i.minWord.length+"<br/>",o.innerHTML+="Max Word: "+i.maxWord.length+"<br/>"),n.appendChild(o);var a=document.createElement("div");a.setAttribute("style","    color:black;    position:absolute;    right:6px;    top:5px;    width:auto;    font-size:14px;    text-align:right;    font-family:Arial, sans-serif;    cursor:pointer;"),a.appendChild(document.createTextNode("X")),a.setAttribute("id","textAnalyticsClose"),n.appendChild(a),a.addEventListener("click",function(){n.style.display="none"},!1),document.body.appendChild(n)}();
+```
+- ### unddit
+```
+javascript:window.open(location.href.replace(/:\/\/([\w-]+\.)?(reddit\.com\/r|reveddit\.com\/v)\//i, "://www.unddit.com/r/"), "_blank")
+```
+- ### urban dictionary
+```
+javascript:(function(){q=document.getSelection();if(!q){void(q=prompt('Slang to look up:',''))};if(q)location.href='http://www.urbandictionary.com/define.php?term='+escape(q)})()
+```
+- ### vxtwitter
+```
+javascript:(function(){function%20copyToClipboard(t){if(navigator.clipboard&&navigator.clipboard.writeText)return%20navigator.clipboard.writeText(t);else%20if(window.clipboardData&&window.clipboardData.setData)return%20clipboardData.setData("Text",t);else%20if(document.queryCommandSupported&&document.queryCommandSupported("copy")){var%20e=document.createElement("textarea");return%20e.textContent=t,e.style.position="fixed",document.body.appendChild(e),e.select(),document.execCommand("copy"),document.body.removeChild(e),!0}else%20return!1}var%20t=window.location.href;if(t.includes("twitter.com")||t.includes("nitter.nl")){t=t.replace("twitter.com","vxtwitter.com").replace("nitter.nl","vxtwitter.com"),copyToClipboard(t)}else%20alert("This%20bookmarklet%20only%20works%20on%20Twitter%20or%20Nitter%20pages.")})();
+```
+- ### wayback cache
+```
+javascript:window.location.href='https://web.archive.org/web/'+window.location.href.replace(/^https?:\/\//i,'');
+```
+- ### wayack
+```
+javascript:void(window.open('https://web.archive.org/web/*/'+escape(location.href.replace(/^https?:\/\//,'').replace(/\/$/,''))));
+```
+- ### web2pdf
+```
+javascript:void(window.open('https://www.web2pdfconvert.com#' + location.href))
+```
+- ### web qr code
+```
+javascript:(function(){var url=('http://chart.apis.google.com/chart?cht=qr&chs=300x300&chl=' + encodeURIComponent(location.href));w = open(url, 'w', 'location=no,status=yes,menubar=no,scrollbars=no,resizable=yes,width=500,height=500,modal=yes,dependent=yes');if (w) { setTimeout('w.focus()', 1000) } else { location = url } })();
+```
+- ### web stack
+```
+javascript:(function(){var d=document,e=d.getElementById('wappalyzer-container');if(e!==null){d.body.removeChild(e);}var u='https://www.wappalyzer.com/',t=new Date().getTime(),c=d.createElement('div'),p=d.createElement('div'),l=d.createElement('link'),s=d.createElement('script');c.setAttribute('id','wappalyzer-container');l.setAttribute('rel','stylesheet');l.setAttribute('href',u+'css/bookmarklet.css');d.head.appendChild(l);p.setAttribute('id','wappalyzer-pending');p.setAttribute('style','background-image:url('+u+'images/spinner.gif)!important');c.appendChild(p);s.setAttribute('src',u+'bookmarklet/wappalyzer.js');s.onload=function(){window.wappalyzer=new Wappalyzer();s=d.createElement('script');s.setAttribute('src',u+'bookmarklet/apps.js');s.onload=function(){s=d.createElement('script');s.setAttribute('src',u+'bookmarklet/driver.js');c.appendChild(s);};c.appendChild(s);};c.appendChild(s);d.body.appendChild(c);})();
+```
+- ### who.is
+```
+javascript:(function(){window.open("http://who.is/whois/" + document.domain)})();
+```
+- ### wikipedia
+```
+javascript:s=document.getSelection();for(i=0;i<frames.length;i++){if(s)break;s=frames[i].document.getSelection();}if(!s)void(s=prompt('Enter search terms for Wikipedia',''));wikiw=open('http://en.wikipedia.org/'+(s?'w/wiki.phtml?search='+escape(s):''));wikiw.focus();
+```
+- ### youtube rss feed
+```
+javascript:(function(){var url=(document.querySelector('link[type="application/rss+xml"]')||'').href;if(url!==undefined){return location.href=url;}try{var channelId=ytplayer.config.args.ucid;location.href='https://www.youtube.com/feeds/videos.xml?channel_id=' + channelId;}catch(TypeError){console.error('YouTube RSS feed bookmarklet: Could not find a channel RSS feed');}})();
+```
+- ### youtube shorten url
+```
+javascript:void(window.open('https://y2u.be/create.php?URL=' + location.href, '_self'));
+```
+- ### youtube thumbnail
+```
+javascript:(()=>{window.open(`https://img.youtube.com/vi/${new URLSearchParams(window.location.search).get("v")}/maxresdefault.jpg`);})();
+```
+- ### youtube download
+```
+javascript:void(open('https://qdownloader.net/download?video=' + encodeURIComponent(document.location)));
+```
