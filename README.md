@@ -1,5 +1,14 @@
 # Awesome Bookmarklets [![Awesome](https://cdn.rawgit.com/sindresorhus/awesome/d7305f38d29fed78fa85652e3a63e154dd8e8829/media/badge.svg)](https://github.com/sindresorhus/awesome)
 
+## Table of Contents
+
+- [Productivity](#productivity)
+- [Web Development](#web-development)
+- [Accessibility](#accessibility)
+- [Design](#design)
+- [Debugging](#debugging)
+- [Social Media](#social-media)
+
 ## What are bookmarklets?
 
 Bookmarklets are small JavaScript programs that can be saved as bookmarks in your web browser. When you click on a bookmarklet, it executes a specific action or adds functionality to the webpage you are currently viewing.
