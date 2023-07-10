@@ -63,3 +63,71 @@ javascript:(function(){window.open('https://discovery.thirdplace.no/?q='+encodeU
 ```
 javascript:(function(){var currentUrl=encodeURIComponent(window.location.href);window.location.href="https://www.savethevideo.com/home?url="+currentUrl;})();
 ```
+- ### ebook search
+```
+javascript:var song=window.prompt('Find Books:', 'Enter book or author name');var song2=song.split(' ').join('_');var song3=song.split(' ').join('');var url='https://www.google.com/search?q=%22parent+directory%22+pdf+OR+epub+OR+DjVU+OR+xps+%27+song+%27+OR+%27+song2+%27+OR+%27+song3+%27+-html+-htm+-shtml+-phtml+-php+-buy+-aspx+-jsp+-asp+-cgi+-pdf+-ftp+-unknownsecret&num=100&filter=0';window.open(url,'_self');
+```
+- ### edit page
+```
+javascript:document.body.contentEditable='true';document.designMode='on';void 0;
+```
+- ### enable right-click
+```
+javascript:void(document.oncontextmenu=null);
+```
+- ### extract emails
+```
+javascript:var StrObj=document.body.innerHTML; var haystack = StrObj.toString(); var regex = /(?:[a-z0-9!#$%&'*+/=?^_`{|}~-]+(?:\.[a-z0-9!#$%&'*+/=?^_`{|}~-]+)*|"(?:[\x01-\x08\x0b\x0c\x0e-\x1f\x21\x23-\x5b\x5d-\x7f]|\\[\x01-\x09\x0b\x0c\x0e-\x7f])*")@(?:(?:[a-z0-9](?:[a-z0-9-]*[a-z0-9])?\.)+[a-z0-9](?:[a-z0-9-]*[a-z0-9])?|\[(?:(?:25[0-5]|2[0-4][0-9]|[01]?[0-9][0-9]?)\.){3}(?:25[0-5]|2[0-4][0-9]|[01]?[0-9][0-9]?|[a-z0-9-]*[a-z0-9]:(?:[\x01-\x08\x0b\x0c\x0e-\x1f\x21-\x5a\x53-\x7f]|\\[\x01-\x09\x0b\x0c\x0e-\x7f])+)\])/g; var found = haystack.match(regex); if(found !== null && found !=='') { mailz=(found.join('\r\n<br>')); w=window.open('', 'mailz', 'scrollbars,resizable,width=400,height=600'); w.document.write(mailz); }else{ alert('No emails found on page'); }
+```
+- ### hackerweb
+```
+javascript:(function(){if(/https?:\/\/news\.ycombinator\.com\/item\?id=(\d+)/.test(location)){location='https://hackerweb.app/%23/item/'+RegExp.$1;}else if(/https:\/\/hackerweb\.app\/%23\/item\/(\d+)/.test(location)){location='https://news.ycombinator.com/item?id='+RegExp.$1;}else{location='https://hackerweb.app';}})();
+```
+- ### hackernews
+```
+javascript:(function(){if(/https?:\/\/news\.ycombinator\.com\/item\?id=(\d+)/.test(location)){location='https://hackernewz.com/item/'+RegExp.$1;}else if(/https:\/\/www\.hackernewz\.com\/item\/(\d+)/.test(location)){location='https://news.ycombinator.com/item?id='+RegExp.$1;}else{location='https://hackernewz.com';}})();
+```
+- ### go to referrer
+```
+javascript:if(!document.referrer)alert("No referrer!");else document.location=document.referrer;void 0;
+```
+- ### fresh results
+```
+javascript:(function(){var e=decodeURIComponent(window.location.href.match(/[?&]q=([^&]+)/i)[1]).replace(/%20/g,'+');window.location.href='https://www.google.com/search?q='+e+'&tbs=qdr:d';})();
+```
+- ### serp scraper
+```
+
+```
+- ### website down
+```
+javascript:location='https://downforeveryoneorjustme.com/'+location.hostname
+```
+- ### youtube
+```
+javascript:(function(L,t){(t=/[?&]v=([^&]+)/.exec(L.search))?alert('Video ID: '+t[1]):alert('No videoID found.')})(window.location);
+```
+- ### kill sticky
+```
+javascript:(function(){document.querySelectorAll("body *").forEach(function(node){if(["fixed","sticky"].includes(getComputedStyle(node).position)){node.parentNode.removeChild(node)}});document.querySelectorAll("html *").forEach(function(node){var s=getComputedStyle(node);if("hidden"===s["overflow"]){node.style["overflow"]="visible"}if("hidden"===s["overflow-x"]){node.style["overflow-x"]="visible"}if("hidden"===s["overflow-y"]){node.style["overflow-y"]="visible"}});var htmlNode=document.querySelector("html");htmlNode.style["overflow"]="visible";htmlNode.style["overflow-x"]="visible";htmlNode.style["overflow-y"]="visible"})();
+```
+- ### open in libreddit
+```
+javascript:(function(){window.open('https://safereddit.com'+window.location.pathname.slice(0), '_self')})();
+```
+- ### open in nitter
+```
+javascript:(function(){ location.href = `https://nitter.nl${location.pathname}` })();
+```
+- ### proxitok
+```
+javascript:var url=location.href;if(url.includes('tiktok.com')){url=url.replace('tiktok.com','proxitok.pabloferreiro.es');}(window.open(url,'_self'));
+```
+- ### readify
+```
+javascript:void(window.open('https://readify.me/'+location.href));
+```
+- ### teddit
+```
+javascript:(function(){window.open('https://tedd.it'+window.location.pathname.slice(0))})();
+```
