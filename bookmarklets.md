@@ -1,4 +1,3 @@
-## Productivity
 - ### Amazon India Search
 Perform a quick search on Amazon India using selected text or manually entered keywords.
 ```
